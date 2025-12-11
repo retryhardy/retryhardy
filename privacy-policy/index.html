@@ -1,89 +1,222 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>RetryHardy TikTok Upload Automation</title>
-  <style>
-    :root{
-      --bg:#0f1724;
-      --card:#0b1220;
-      --accent:#00f0ff;
-      --muted:#9aa4b2;
-      --text:#e6eef6;
-      --container:1200px;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    }
-    html,body{height:100%;margin:0;background:linear-gradient(180deg,#071021 0%, #071827 100%);color:var(--text)}
-    header{
-      background: linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-      border-bottom:1px solid rgba(255,255,255,0.03);
-      backdrop-filter: blur(6px);
-    }
-    .wrap{max-width:var(--container);margin:0 auto;padding:20px;}
-    .nav{display:flex;align-items:center;gap:16px;}
-    .logo{font-weight:700;letter-spacing:0.4px;color:var(--accent)}
-    nav a{color:var(--muted);text-decoration:none;font-size:14px}
-    .hero{padding:48px 0;display:flex;gap:24px;align-items:flex-start}
-    .hero h1{margin:0;font-size:36px;line-height:1.05}
-    .hero p{margin:8px 0 0;color:var(--muted);max-width:60ch}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);padding:28px;border-radius:12px;box-shadow: 0 6px 18px rgba(2,6,23,0.6);}
-    main{max-width:var(--container);margin:24px auto;padding:0 20px 80px}
-    article{margin-top:18px;line-height:1.7;color:#dbe9f8}
-    hr{border:none;border-top:1px solid rgba(255,255,255,0.04);margin:18px 0}
-    pre{background:#051223;padding:14px;border-radius:8px;overflow:auto;color:#bfeffd}
-    footer{color:var(--muted);font-size:13px;padding:40px 20px;text-align:center}
-    .container-grid{display:grid;grid-template-columns:1fr 340px;gap:24px}
-    @media (max-width:900px){.container-grid{grid-template-columns:1fr} .hero{flex-direction:column}}
-    .sidebar .card{padding:20px}
-    .meta{font-size:13px;color:var(--muted);margin-bottom:8px}
-  </style>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>RetryHardy TikTok Upload Automation</title>
+    <style>
+        :root {
+            --bg: #0f1724;
+            --card: #0b1220;
+            --accent: #00f0ff;
+            --muted: #9aa4b2;
+            --text: #e6eef6;
+            --container: 1200px;
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            background: linear-gradient(180deg,#071021 0%, #071827 100%);
+            color: var(--text)
+        }
+
+        header {
+            background: linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+            backdrop-filter: blur(6px);
+        }
+
+        .wrap {
+            max-width: var(--container);
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .logo {
+            font-weight: 700;
+            letter-spacing: 0.4px;
+            color: var(--accent)
+        }
+
+        nav a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 14px
+        }
+
+        .hero {
+            padding: 48px 0;
+            display: flex;
+            gap: 24px;
+            align-items: flex-start
+        }
+
+            .hero h1 {
+                margin: 0;
+                font-size: 36px;
+                line-height: 1.05
+            }
+
+            .hero p {
+                margin: 8px 0 0;
+                color: var(--muted);
+                max-width: 60ch
+            }
+
+        .card {
+            background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+            border: 1px solid rgba(255,255,255,0.03);
+            padding: 28px;
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(2,6,23,0.6);
+        }
+
+        main {
+            max-width: var(--container);
+            margin: 24px auto;
+            padding: 0 20px 80px
+        }
+
+        article {
+            margin-top: 18px;
+            line-height: 1.7;
+            color: #dbe9f8
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid rgba(255,255,255,0.04);
+            margin: 18px 0
+        }
+
+        pre {
+            background: #051223;
+            padding: 14px;
+            border-radius: 8px;
+            overflow: auto;
+            color: #bfeffd
+        }
+
+        footer {
+            color: var(--muted);
+            font-size: 13px;
+            padding: 40px 20px;
+            text-align: center
+        }
+
+        .container-grid {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 24px
+        }
+
+        @media (max-width:900px) {
+            .container-grid {
+                grid-template-columns: 1fr
+            }
+
+            .hero {
+                flex-direction: column
+            }
+        }
+
+        .sidebar .card {
+            padding: 20px
+        }
+
+        .meta {
+            font-size: 13px;
+            color: var(--muted);
+            margin-bottom: 8px
+        }
+
+        /* TikTok Button */
+        .tiktok-btn {
+            padding: 15px 40px;
+            font-size: 20px;
+            color: white;
+            background: linear-gradient(45deg, #ff0050, #00f2ea);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 0 20px rgba(255, 0, 80, 0.6), 0 0 20px rgba(0, 242, 234, 0.6);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: block;
+            margin: 40px auto;
+        }
+
+            .tiktok-btn:hover {
+                transform: scale(1.07);
+                box-shadow: 0 0 30px rgba(255, 0, 80, 0.8), 0 0 30px rgba(0, 242, 234, 0.8);
+            }
+    </style>
 </head>
 <body>
 
-  <div class="wrap hero">
-    <div style="width:320px">
-      <div class="card">
-        <strong>Privacy Policy</strong>
-        <hr>
-      </div>
+    <div class="wrap hero">
+        <div style="width:320px">
+            <div class="card">
+                <strong>Concept / Documentation</strong>
+                <hr>
+                <div class="meta">Platform</div>
+                <div>Windows (.exe)</div>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <main>
-    <div class="container-grid">
-      <section>
-        <div class="card">
-          <article>
-<hr>
+    <main>
+        <div class="container-grid">
+            <section>
+                <div class="card">
+                    <article>
+                        <hr>
 
-<p> Privacy Policy </p>
-<p> Introduction </p>
-<p> Information We Collect </p>
-<p> •	TikTok Account Data: When you connect your TikTok account, we may access your profile information and videos necessary to upload clips on your behalf. </p>
-<p> •	Usage Data: We may collect information about how you interact with the app or website, such as upload history and error logs. </p>
-<p> How We Use Your Information </p>
-<p> •	To automate and manage the uploading of videos to your TikTok account. </p>
-<p> •	To improve the functionality and performance of our service. </p>
-<p> •	To communicate important updates about the service. </p>
-<p> Sharing Your Information </p>
-<p> •	We do not sell your personal data. </p>
-<p> Information may be shared with TikTok only as required to provide the upload functionality. </p>
-<p> •	Information may be shared with TikTok only as required to provide the upload functionality. </p>
-<p> Data Security </p>
-<p> We implement reasonable technical and organizational measures to protect your data from unauthorized access, loss, or misuse. </p>
-<p> Your Rights </p>
-<p> You can disconnect your TikTok account and request deletion of your personal data at any time by contacting us at retryhardy@outlook.com </p>
-<p> Changes to This Privacy Policy </p>
-<p> We may update this Privacy Policy from time to time. Continued use of the service constitutes acceptance of the updated policy. </p>
-<p> Contact Us </p>
-<p> For questions or concerns about this Privacy Policy, please contact retryhardy@outlook.com </p>
-          </article>
+                        <p>The application is designed to fully automate the process of uploading videos to TikTok directly from a user’s computer, eliminating the need to manually open the platform, navigate menus, or interact with the web interface. Built as a standalone <code>.exe</code> program, it provides a fast, reliable, and user-friendly way to manage content publishing, especially for creators, brands, or streamers who want to schedule or batch-upload videos with minimal effort.</p>
+
+                        <p>At its core, the application reads a video stored locally on the user’s machine and prepares it for publication by interacting with TikTok’s API. The user simply selects the video file they want to upload, configures basic details—such as captions, hashtags, privacy settings, or the target account—and the application takes care of the rest. Once configured, the <code>.exe</code> can run automatically, either instantly or at a scheduled time, allowing creators to maintain a consistent posting routine without having to be at their computer.</p>
+
+                        <p>The system works by integrating with the TikTok API’s upload endpoints, handling authentication, video initialization, file transfer, and post confirmation. This ensures that each upload is smooth and compliant with TikTok’s latest requirements. For users who need repeated automation, the application can store login tokens securely, making future uploads even quicker and more streamlined. The interface is simple, with a clean dashboard that shows the status of pending uploads, completed posts, and any errors that might occur during the process.</p>
+
+                        <p>One of the main goals of this application is efficiency. Instead of opening TikTok on the browser, the <code>.exe</code> allows content creators to complete an upload in seconds. For streamers or editors who generate multiple clips a day, this automation removes repetitive work and reduces the risk of mistakes such as uploading the wrong file or forgetting hashtags. The program can also be integrated with other tools—for example, clipping software or automatic video editors—allowing a fully automated pipeline from content creation to publication.</p>
+
+                        <p>Ultimately, the application provides a modern solution for users who want more control and automation in their TikTok workflow. By combining a lightweight executable with seamless communication to TikTok’s services, it transforms the upload process into something fast, predictable, and hands-free. This makes it ideal for professionals who depend on consistent posting, as well as for casual creators who simply want an easier way to share content without dealing with the platform’s manual steps every time.</p>
+
+                    </article>
+                </div>
+            </section>
+
+            <aside class="sidebar">
+                <div class="card">
+                    <div class="meta">Quick links</div>
+                    <ul style="padding-left:18px;color:var(--muted);margin:0;">
+                        <li><a href="https://retryhardy.com/privacy-policy/" style="color:var(--muted);text-decoration:none">Privacy Policy</a></li>
+                        <li><a href="https://retryhardy.com/terms-of-service/" style="color:var(--muted);text-decoration:none">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </aside>
         </div>
 
+        <br><br>
 
-  <footer>
-      This is the page of the RetryHardy Auto Video Uploader for TikTok, it is not created or developed by TikTok, please read the content of this page and Terms of Service before applying.
-  </footer>
+        <!-- ⭐ INSERTED TIKTOK BUTTON ⭐ -->
+        <button class="tiktok-btn" onclick="window.open('https://forms.gle/cCPjEMkTsuLnAipf8', '_blank')">
+            Apply Now
+        </button>
+        <!-- ⭐ END BUTTON ⭐ -->
+
+        <br><br>
+
+        <footer>
+            This is the page of the RetryHardy Auto Video Uploader for TikTok, it is not created or developed by TikTok, please read Terms of Service and Privacy Policy before applying.
+        </footer>
+
 </body>
 </html>
